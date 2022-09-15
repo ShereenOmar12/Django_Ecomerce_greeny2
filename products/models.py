@@ -19,11 +19,12 @@ class Product(models.Model):
     desc= models.TextField(_('Description'),max_length=10000)
     flag=models.CharField(_('Flag'),max_length=10,choices=PRODUCT_FLAG)
     price =models.FloatField(_('Price'))
+    image=models.ImageField(upload_to='products')
     tags=TaggableManager()
     category=models.ForeignKey('Catergory',verbose_name=_('Category'),related_name='product_catrgory',on_delete=models.SET_NULL,null=True,blank=True)
-    brand=models.ForeignKey('Brand',verbose_name=_('Brand'),related_name='product_review',on_delete=models.SET_NULL,null=True,blank=True)
+    brand=models.ForeignKey('Brand',verbose_name=_('Brand'),related_name='product_brand',on_delete=models.SET_NULL,null=True,blank=True)
     video_url=models.URLField(null=True,blank=True)
-    
+    quantity= models.IntegerField(default=50)
     def __str__(self):
         return str(self.name)
 
