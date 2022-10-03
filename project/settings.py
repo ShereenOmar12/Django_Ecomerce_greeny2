@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'accounts',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -40,9 +41,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django_summernote',
     'debug_toolbar',
+    'django_countries',
 
     'products',
-    'accounts',
     'orders',
     'settings',
     'taggit',
@@ -73,7 +74,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'settings.company_context_processor.get_company_info'
+                'settings.company_context_processor.get_company_info',
+                #'accounts.user_context_processor.get_profile',
             ],
         },
     },
@@ -158,3 +160,7 @@ INTERNAL_IPS = [
     "127.0.0.1",
     # ...
 ]
+
+
+
+AUTHENTICATION_BACKENDS = ['accounts.backends.EmailBacKends']

@@ -3,6 +3,7 @@ from django.views.generic import ListView , DetailView
 from .models import Product , ProductImages ,Brand , Catergory
 from django.db.models import Count , Q , F , Value
 from django.db.models.functions import Concat
+from django.db.models.aggregates import Min,Max,Sum,Avg,Count
 # Create your views here.
 
 
@@ -35,8 +36,17 @@ def post_list(request):
     #objects = Product.objects.select_related('category').all() # with one to one relation 
     #objects = Product.objects.prefetch_related('category').all() # with many to many relation 
     #objects = Product.objects.annotate(is_new=Value(True))
-    objects = Product.objects.annotate(
-       full_name = Concat('name',Value(''), 'flag'))
+    #objects = Product.objects.annotate(
+    #   full_name = Concat('name',Value(''), 'flag'))
+    #objects = Product.objects.aggregate(Sum('price') , Max('price'))
+    #print(objects)
+    #objects = Product.objects.all()
+    objects = Product.objects.price_greater_than(40)
+
+    #print(objects)
+
+
+
     
 
 

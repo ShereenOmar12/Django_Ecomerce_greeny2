@@ -8,7 +8,8 @@
   <body>
     <ul>
         {% for product in products %}
-            <li>{{product}}  </li>   <!-- {{product.category.name}} -->
+            <li>{{product}} - {{product.price}} </li>     <!-- {{product.category.name}}  -->
+                                                           <!-- product.get_avg2  -->
         {% endfor %}    
 
 
