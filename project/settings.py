@@ -75,7 +75,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'settings.company_context_processor.get_company_info',
-                #'accounts.user_context_processor.get_profile',
+                'accounts.user_context_processor.get_profile'
             ],
         },
     },
@@ -164,3 +164,15 @@ INTERNAL_IPS = [
 
 
 AUTHENTICATION_BACKENDS = ['accounts.backends.EmailBacKends']
+
+
+
+
+
+# Bottom of the file
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp@gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'oshereen19@gmail.com'
+EMAIL_HOST_PASSWORD = 'ebswimhohgbynpfp'
