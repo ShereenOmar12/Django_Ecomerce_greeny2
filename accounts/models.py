@@ -1,9 +1,10 @@
 from django.db import models
 from django_countries.fields import CountryField
 from django.contrib.auth.models import User 
-from utils.genereate_code import generate_code
 from django.dispatch import receiver
 from django.db.models.signals import post_save
+from utils.genereate_code import generate_code
+
 # Create your models here.
 
 '''

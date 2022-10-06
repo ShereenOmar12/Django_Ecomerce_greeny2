@@ -194,3 +194,14 @@
     margin: 0px 10px 25px;
   }
 }
+
+
+
+.profileimageP{
+
+  width:80px;
+  border-radius:50%;
+  border: 3px solid var(--white);
+
+
+}
