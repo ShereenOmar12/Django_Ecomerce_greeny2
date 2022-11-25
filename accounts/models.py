@@ -3,7 +3,7 @@ from django_countries.fields import CountryField
 from django.contrib.auth.models import User 
 from django.dispatch import receiver
 from django.db.models.signals import post_save
-from utils.genereate_code import generate_code
+from utils.generate_code import generate_code
 
 # Create your models here.
 
@@ -20,7 +20,7 @@ User :
 
 class Profile(models.Model):
     user= models.OneToOneField(User , related_name='user_profile' , on_delete=models.CASCADE)
-    image=models.ImageField(upload_to='users')
+    image = models.ImageField(upload_to='users')
 
     code= models.CharField(max_length=10 , default= generate_code)
     code_used = models.BooleanField(default=False)
@@ -28,10 +28,10 @@ class Profile(models.Model):
 
 
 
-@receiver(post_save ,sender=User)
-def create_profile(sender,instance,created,**kwargs):
-    if created :
-        Profile.objects.create(user=instance)
+#@receiver(post_save ,sender=User)
+#def create_profile(sender,instance,created,**kwargs):
+    #if created :
+        #Profile.objects.create(user=instance)
 
 
 
@@ -46,13 +46,13 @@ DATA_TYPE =(
 
 class UserPhoneNumber(models.Model):
     user= models.ForeignKey(User , related_name='user_phone' , on_delete=models.CASCADE)
-    number=''
-    type=models.CharField(choices=DATA_TYPE , max_length=10)
+    number= models.CharField(max_length=15)
+    type = models.CharField(choices=DATA_TYPE , max_length=10)
 
 
 class UserAderss(models.Model):
     user= models.ForeignKey(User , related_name='user_adress' , on_delete=models.CASCADE)
-    type=models.CharField(choices=DATA_TYPE , max_length=10)
+    type =models.CharField(choices=DATA_TYPE , max_length=10)
     country=CountryField()
     city= models.CharField(max_length=20)
     state= models.CharField(max_length=30)

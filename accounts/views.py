@@ -1,7 +1,8 @@
 from django.shortcuts import render
 from django.core.mail import send_mail
 
-from .forms import SignupForm , UserActivateForm
+from .forms import SignupForm     
+# UserActivateForm
 from .models import Profile, UserPhoneNumber , UserAderss
 
 # Create your views here.
